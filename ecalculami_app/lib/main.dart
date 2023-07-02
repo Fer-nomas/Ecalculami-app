@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Ecalculami app(Beta)',
+      title: 'Ecalculami',
       theme: ThemeData(
         primarySwatch: Colors.indigo,
         appBarTheme: AppBarTheme(
@@ -36,14 +36,14 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
 // text fields' controllers
-  final TextEditingController _serialController = TextEditingController();
-  final TextEditingController _nombreController = TextEditingController();
-  final TextEditingController _consumoController = TextEditingController();
-  final TextEditingController _mesController = TextEditingController();
-  final TextEditingController _anoController = TextEditingController();
+  final TextEditingController _mediController = TextEditingController();
+  final TextEditingController _nameController = TextEditingController();
+  final TextEditingController _consController = TextEditingController();
+  final TextEditingController _monthController = TextEditingController();
+  final TextEditingController _paidController = TextEditingController();
 
   final CollectionReference _products =
-      FirebaseFirestore.instance.collection('things');
+      FirebaseFirestore.instance.collection('2023');
 
   Future<void> _create([DocumentSnapshot? documentSnapshot]) async {
     await showModalBottomSheet(
@@ -63,35 +63,35 @@ class _HomePageState extends State<HomePage> {
                 TextField(
                   keyboardType:
                       const TextInputType.numberWithOptions(decimal: true),
-                  controller: _serialController,
+                  controller: _mediController,
                   decoration: const InputDecoration(
-                    labelText: 'Serial de Casa',
+                    labelText: 'N° Medidor',
                   ),
                 ),
                 TextField(
-                  controller: _nombreController,
+                  controller: _nameController,
                   decoration: const InputDecoration(
                     labelText: 'Nombre',
                   ),
                 ),
                 TextField(
-                  controller: _mesController,
+                  controller: _monthController,
                   decoration: const InputDecoration(
                     labelText: 'Mes',
                   ),
                 ),
+                // TextField(
+                //   keyboardType:
+                //       const ,
+                //   controller: _paidController,
+                //   decoration: const InputDecoration(
+                //     labelText: 'Pagado',
+                //   ),
+                // ),
                 TextField(
                   keyboardType:
                       const TextInputType.numberWithOptions(decimal: true),
-                  controller: _anoController,
-                  decoration: const InputDecoration(
-                    labelText: 'Año',
-                  ),
-                ),
-                TextField(
-                  keyboardType:
-                      const TextInputType.numberWithOptions(decimal: true),
-                  controller: _consumoController,
+                  controller: _consController,
                   decoration: const InputDecoration(
                     labelText: 'Consumo',
                   ),
@@ -102,26 +102,26 @@ class _HomePageState extends State<HomePage> {
                 ElevatedButton(
                   child: const Text('Añadir'),
                   onPressed: () async {
-                    final String serial = _serialController.text;
-                    final String ci = _nombreController.text;
-                    final String consumo = _consumoController.text;
-                    final String mes = _mesController.text;
-                    final String ano = _anoController.text;
+                    final String medi = _mediController.text;
+                    final String name = _nameController.text;
+                    final String cons = _consController.text;
+                    final String month = _monthController.text;
+                    final String paid = _paidController.text;
 
-                    if (ci != "") {
+                    if (name != "") {
                       await _products.add({
-                        "serial": serial,
-                        "ci": ci,
-                        "consumo": consumo,
-                        "mes": mes,
-                        "ano": ano,
+                        "medi": medi,
+                        "name": name,
+                        "cons": cons,
+                        "month": month,
+                        "paid": paid,
                       });
 
-                      _serialController.text = '';
-                      _nombreController.text = '';
-                      _consumoController.text = '';
-                      _mesController.text = '';
-                      _anoController.text = '';
+                      _mediController.text = '';
+                      _nameController.text = '';
+                      _consController.text = '';
+                      _monthController.text = '';
+                      _paidController.text = '';
                       Navigator.of(context).pop();
                     }
                   },
@@ -187,14 +187,6 @@ class _HomePageState extends State<HomePage> {
                               ),
                             ),
                             Text(
-                              "Año:",
-                              style: TextStyle(
-                                height: 1.5,
-                                fontSize: 15,
-                                fontWeight: FontWeight.w600,
-                              ),
-                            ),
-                            Text(
                               "Consumo:",
                               style: TextStyle(
                                 height: 1.5,
@@ -207,7 +199,7 @@ class _HomePageState extends State<HomePage> {
                         Column(
                           children: [
                             Text(
-                              documentSnapshot['serial'],
+                              documentSnapshot['medi'],
                               style: const TextStyle(
                                 height: 1.5,
                                 fontSize: 15,
@@ -215,7 +207,7 @@ class _HomePageState extends State<HomePage> {
                               ),
                             ),
                             Text(
-                              documentSnapshot['ci'],
+                              documentSnapshot['name'],
                               style: const TextStyle(
                                 height: 1.5,
                                 fontSize: 15,
@@ -223,7 +215,7 @@ class _HomePageState extends State<HomePage> {
                               ),
                             ),
                             Text(
-                              documentSnapshot['mes'],
+                              documentSnapshot['month'],
                               style: const TextStyle(
                                 height: 1.5,
                                 fontSize: 15,
@@ -231,15 +223,7 @@ class _HomePageState extends State<HomePage> {
                               ),
                             ),
                             Text(
-                              documentSnapshot['ano'],
-                              style: const TextStyle(
-                                height: 1.5,
-                                fontSize: 15,
-                                fontWeight: FontWeight.w400,
-                              ),
-                            ),
-                            Text(
-                              documentSnapshot['consumo'],
+                              documentSnapshot['cons'],
                               style: const TextStyle(
                                 height: 1.5,
                                 fontSize: 15,
