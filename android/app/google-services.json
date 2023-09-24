@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "1021683053731",
+    "project_id": "ecalculami-app",
+    "storage_bucket": "ecalculami-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1021683053731:android:0ffd5dd0f5e8a2a10d3b16",
+        "android_client_info": {
+          "package_name": "com.example.ecalculami_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1021683053731-iqfhol32q74ovpgifc276idtpgscfrvd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBUBCi5JqzhN_CnKu9GsnYh1OZb_9rmX04"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1021683053731-iqfhol32q74ovpgifc276idtpgscfrvd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1021683053731:android:394f96798209abfd0d3b16",
+        "android_client_info": {
+          "package_name": "com.example.flutter_application_1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1021683053731-iqfhol32q74ovpgifc276idtpgscfrvd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBUBCi5JqzhN_CnKu9GsnYh1OZb_9rmX04"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1021683053731-iqfhol32q74ovpgifc276idtpgscfrvd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
